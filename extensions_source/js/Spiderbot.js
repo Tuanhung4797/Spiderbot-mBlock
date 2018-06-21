@@ -223,10 +223,9 @@
 
     ext.stand1 = function(speed) {
        
-       var header = "stand1";
-       var end = ";";
+       var header = "stand1;";
        var bytes =[];
-       Str = Str.concat(header,end);
+       Str = header;
        bytes = Str.split("");
        for (var i=0;i<bytes.length;++i)
          {
@@ -237,10 +236,9 @@
 
     ext.stand2 = function(speed) {
        
-       var header = "stand2";
-       var end = ";";
+       var header = "stand2;";
        var bytes =[];
-       Str = Str.concat(header,end);
+       Str = header;
        bytes = Str.split("");
        for (var i=0;i<bytes.length;++i)
          {
@@ -251,10 +249,9 @@
 
     ext.stand3 = function(speed) {
        
-       var header = "stand3";
-       var end = ";";
+       var header = "stand3;";
        var bytes =[];
-       Str = Str.concat(header,end);
+       Str = header;
        bytes = Str.split("");
        for (var i=0;i<bytes.length;++i)
          {
