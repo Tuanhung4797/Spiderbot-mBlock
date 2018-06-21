@@ -7,11 +7,11 @@
     // Sensor states:
    
   
-	ext.resetAll = function(){};
-	
-	ext.runArduino = function(){};
+  ext.resetAll = function(){};
+  
+  ext.runArduino = function(){};
 
-	ext.forward = function(speed) {
+  ext.forward = function(speed) {
        
        var header = "forward";
        var space = " ";
@@ -26,9 +26,9 @@
        Str = Str.concat(header,space,arg,StrSpeed,end);
        bytes = Str.split("");
        for (var i=0;i<bytes.length;++i)
-       	 {
-       	 	bytes[i]=bytes[i].charCodeAt(0);
-       	 }
+         {
+          bytes[i]=bytes[i].charCodeAt(0);
+         }
        device.send(bytes);
     };
     
@@ -221,7 +221,7 @@
        device.send(bytes);
     };
 
-    ext.stand1 = function(speed) {
+    ext.stand1 = function() {
        
        var header = "stand1;";
        var bytes =[];
@@ -234,7 +234,7 @@
        device.send(bytes);
     };
 
-    ext.stand2 = function(speed) {
+    ext.stand2 = function() {
        
        var header = "stand2;";
        var bytes =[];
@@ -247,7 +247,7 @@
        device.send(bytes);
     };
 
-    ext.stand3 = function(speed) {
+    ext.stand3 = function() {
        
        var header = "stand3;";
        var bytes =[];
@@ -260,25 +260,10 @@
        device.send(bytes);
     };
     ////////////////////////////////////////////
-	function sendPackage(argList){
-		var bytes = [];
-		for(var i=0;i<argList.length;++i){
-			var val = argList[i];
-			if(val.constructor == "[class Array]"){
-				bytes = bytes.concat(val);
-			}else{
-				bytes.push(val);
-			}
-		}
-		//bytes[2] = bytes.length - 3;
-		device.send(bytes);
-	}
+  
+    function processData(bytes) {}
 
-		function runPackage(){
-		sendPackage(arguments);
-	}
-    // Extension API interactions
-    var potentialDevices = [];
+     var potentialDevices = [];
     ext._deviceConnected = function(dev) {
         potentialDevices.push(dev);
 
@@ -286,8 +271,6 @@
             tryNextDevice();
         }
     }
-    
-    function processData(bytes) {}
 
     function tryNextDevice() {
         // If potentialDevices is empty, device will be undefined.
@@ -325,5 +308,5 @@
     };
 
     var descriptor = {};
-	ScratchExtensions.register('Spiderbot', descriptor, ext, {type: 'serial'});
+  ScratchExtensions.register('Spiderbot', descriptor, ext, {type: 'serial'});
 })({});

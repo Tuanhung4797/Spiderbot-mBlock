@@ -11,11 +11,20 @@
 	"blockSpecs": [
 		["h","Spiderbot Program","runArduino",
 			{"setup":"",
-			 "inc": "" ,
+			 "inc": "",
 			 "def":"",
 			 "work":"",
 			 "loop":""
 			  }],
+
+		["w",
+		 "Listen to Serial","listenToSerial", 
+		{"encode":"",
+		 "setup":"robot.init();\nSerial.begin(9600);\n",
+		  "inc":"#include \"spider.h\"\n",
+		  "def":"spider robot;\n",
+		  "work":"",
+		  "loop":"robot.listenToSerial();\n"}],
 
 		["w",
 		 "Spider move forward, Speed: %n","forward", "70", 
